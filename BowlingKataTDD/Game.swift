@@ -9,11 +9,23 @@
 import Foundation
 
 class Game {
+    private var rolls = [Int](repeating: 0, count: 21)
+    private var currentRoll = 0
+    
     func roll(_ pins: Int) {
-        
+        rolls[currentRoll] = pins
+        currentRoll += 1
     }
     
     func score() -> Int {
-        return 0
+        var score = 0
+        var frameIndex = 0
+        
+        for _ in 1...10 {
+            score += (rolls[frameIndex] + rolls[frameIndex+1])
+            frameIndex += 2
+        }
+        
+        return score
     }
 }

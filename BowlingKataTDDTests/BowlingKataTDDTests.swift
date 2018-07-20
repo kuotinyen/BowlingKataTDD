@@ -49,4 +49,14 @@ class BowlingKataTDDTests: XCTestCase {
         XCTAssertEqual(20, game.score())
     }
     
+    func testOneSpare() {
+        game.roll(5)
+        game.roll(5)
+        
+        game.roll(3)
+        
+        rollMany(pins: 0, times: 17)
+        XCTAssertEqual(game.score(), 16)
+    }
+    
 }

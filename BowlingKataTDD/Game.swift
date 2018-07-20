@@ -24,11 +24,14 @@ class Game {
         for _ in 1...10 {
             if isSpare(frameIndex) {
                 score += 10 + spareBonus(frameIndex)
+                frameIndex += 2
+            } else if isStrike(frameIndex) {
+                score += 10 + strikeBonus(frameIndex)
+                frameIndex += 1
             } else {
                 score += noBonusSum(frameIndex)
+                frameIndex += 2
             }
-            
-            frameIndex += 2
         }
         
         return score
@@ -38,9 +41,18 @@ class Game {
         return rolls[frameIndex] + rolls[frameIndex + 1] == 10
     }
     
+    func isStrike(_ frameIndex: Int) -> Bool {
+        return rolls[frameIndex] == 10
+    }
+    
     func spareBonus(_ frameIndex: Int) -> Int {
         return rolls[frameIndex+2]
     }
+    
+    func strikeBonus(_ frameIndex: Int) -> Int {
+        return rolls[frameIndex+1] + rolls[frameIndex+2]
+    }
+
     
     func noBonusSum(_ frameIndex: Int) -> Int {
         return rolls[frameIndex] + rolls[frameIndex+1]

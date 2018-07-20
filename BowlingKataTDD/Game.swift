@@ -22,15 +22,27 @@ class Game {
         var frameIndex = 0
         
         for _ in 1...10 {
-            if rolls[frameIndex] + rolls[frameIndex+1] == 10 {
-                score += (10 + rolls[frameIndex+2])
+            if isSpare(frameIndex) {
+                score += 10 + spareBonus(frameIndex)
             } else {
-                score += (rolls[frameIndex] + rolls[frameIndex+1])
+                score += noBonusSum(frameIndex)
             }
             
             frameIndex += 2
         }
         
         return score
+    }
+    
+    func isSpare(_ frameIndex: Int) -> Bool {
+        return rolls[frameIndex] + rolls[frameIndex + 1] == 10
+    }
+    
+    func spareBonus(_ frameIndex: Int) -> Int {
+        return rolls[frameIndex+2]
+    }
+    
+    func noBonusSum(_ frameIndex: Int) -> Int {
+        return rolls[frameIndex] + rolls[frameIndex+1]
     }
 }

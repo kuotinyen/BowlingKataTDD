@@ -33,7 +33,16 @@ class BowlingKataTDDTests: XCTestCase {
         }
         
         XCTAssertEqual(score, game.score())
+    }
+    
+    func testAllOneScore() {
+        let score = 20
         
+        for _ in 0..<20 {
+            game.roll(1)
+        }
+        
+        XCTAssertEqual(score, game.score())
     }
     
 }

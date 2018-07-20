@@ -22,7 +22,12 @@ class Game {
         var frameIndex = 0
         
         for _ in 1...10 {
-            score += (rolls[frameIndex] + rolls[frameIndex+1])
+            if rolls[frameIndex] + rolls[frameIndex+1] == 10 {
+                score += (10 + rolls[frameIndex+2])
+            } else {
+                score += (rolls[frameIndex] + rolls[frameIndex+1])
+            }
+            
             frameIndex += 2
         }
         

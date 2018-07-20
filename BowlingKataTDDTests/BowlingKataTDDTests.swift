@@ -68,4 +68,9 @@ class BowlingKataTDDTests: XCTestCase {
         XCTAssertEqual(game.score(), 24)
     }
     
+    func testPerfectGmae() {
+        rollMany(pins: 10, times: 12)
+        XCTAssertEqual(game.score(), 300)
+    }
+    
 }

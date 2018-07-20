@@ -25,24 +25,28 @@ class BowlingKataTDDTests: XCTestCase {
         super.tearDown()
     }
     
-    func testNoScore() {
-        let score = 0
-        
-        for i in 0..<20 {
-            game.roll(0)
+    func rollMany(pins: Int, times: Int) {
+        for _ in 1...times {
+            game.roll(pins)
         }
+    }
+    
+    func testNoScore() {
+        let n = 20
+        let pins = 0
         
-        XCTAssertEqual(score, game.score())
+        rollMany(pins: pins, times: n)
+        
+        XCTAssertEqual(0, game.score())
     }
     
     func testAllOneScore() {
-        let score = 20
+        let n = 20
+        let pins = 1
         
-        for _ in 0..<20 {
-            game.roll(1)
-        }
+        rollMany(pins: pins, times: n)
         
-        XCTAssertEqual(score, game.score())
+        XCTAssertEqual(20, game.score())
     }
     
 }

@@ -1,7 +1,7 @@
 #!/bin/sh
-xcrun xcodebuild -project PgySDKDemo.xcodeproj -scheme PgySDKDemo \
-  -archivePath PgySDKDemo.xcarchive archive
+xcrun xcodebuild -project BowlingKataTDD.xcodeproj -scheme BowlingKataTDD \
+  -archivePath BowlingKataTDD.xcarchive archive
 
-xcrun xcodebuild -exportArchive -archivePath PgySDKDemo.xcarchive \
-  -exportPath ./build -exportOptionsPlist ExportOptions.plist
+# xcrun xcodebuild -exportArchive -archivePath BowlingKataTDD.xcarchive \
+#   -exportPath ./build -exportOptionsPlist ExportOptions.plist
 

@@ -4,7 +4,7 @@
 
 
 
-xcodebuild -project BowlingKataTDD.xcodeproj -scheme BowlingKataTDD -sdk ihponesimulator
+xcodebuild -project BowlingKataTDD.xcodeproj -scheme BowlingKataTDD -sdk iphonesimulator
 
 
 # xcrun xcodebuild -exportArchive -archivePath BowlingKataTDD.xcarchive \
